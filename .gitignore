@@ -1,0 +1,14 @@
+# Build Maven
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+#Claude
+.claude/
