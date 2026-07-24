@@ -64,7 +64,7 @@ class PositionTest {
       new Position(90, 180);
     });
   }
-  
+
   @Test
   void constructorIsInclusiveInNegativeExtremity() {
     Assertions.assertDoesNotThrow(() -> {
