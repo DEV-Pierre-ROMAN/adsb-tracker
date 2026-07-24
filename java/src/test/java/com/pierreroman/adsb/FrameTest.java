@@ -55,6 +55,18 @@ class FrameTest {
     bytes[0] = df;
 
     Frame frame = new Frame(bytes);
-    Assertions.assertEquals(17, frame.df(), "la methode df convertie bien les 5 premiers bits");
+    Assertions.assertEquals(17, frame.df(),
+        "la methode df convertie bien les 5 premiers bits");
+  }
+
+  @Test
+  void caIsDecodedFromLastThreeBitsOfFirstByte() {
+    byte df = (byte) 0x8D;
+    byte[] bytes = new byte[14];
+    bytes[0] = df;
+
+    Frame frame = new Frame(bytes);
+    Assertions.assertEquals(5, frame.ca(),
+        "la methode ca convertie bien les 3 derniers bits du premier octet");
   }
 }

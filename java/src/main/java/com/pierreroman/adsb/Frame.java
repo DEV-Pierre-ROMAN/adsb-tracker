@@ -31,4 +31,8 @@ public record Frame(byte[] raw) {
     return (raw[0] & 0xFF) >> 3;
   }
 
+  public int ca() {
+    return raw[0] & 0x07;
+  }
+
 }
