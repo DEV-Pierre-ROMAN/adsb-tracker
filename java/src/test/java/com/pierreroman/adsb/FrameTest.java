@@ -69,4 +69,16 @@ class FrameTest {
     Assertions.assertEquals(5, frame.ca(),
         "la methode ca convertie bien les 3 derniers bits du premier octet");
   }
+
+  @Test
+  void icaoIsDecodedFromTheByte2to4() {
+    byte[] bytes = new byte[14];
+    bytes[1] = (byte) 0x48;
+    bytes[2] = (byte) 0x40;
+    bytes[3] = (byte) 0xD6;
+
+    Frame frame = new Frame(bytes);
+    Assertions.assertEquals(0x4840D6,  frame.icao(),
+        "la methode ca convertie bien les octet 2 à 4");
+  }
 }

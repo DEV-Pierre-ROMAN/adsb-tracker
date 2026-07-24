@@ -35,4 +35,8 @@ public record Frame(byte[] raw) {
     return raw[0] & 0x07;
   }
 
+  public int icao() {
+    return ((raw[1] & 0xFF) << 16) | ((raw[2] & 0xFF) << 8) | (raw[3] & 0xFF);
+  }
+
 }
