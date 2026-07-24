@@ -38,6 +38,13 @@ class PositionTest {
   }
 
   @Test
+  void constructorMinimumLatitudeIsMinus90() {
+    Assertions.assertThrows(IllegalArgumentException.class, () -> {
+      new Position(-91, 0);
+    });
+  }
+
+  @Test
   void constructorMaximumLongitudeIs180() {
     Assertions.assertThrows(IllegalArgumentException.class, () -> {
       new Position(0, 181);
@@ -45,9 +52,23 @@ class PositionTest {
   }
 
   @Test
+  void constructorMinimumLongitudeIsMinus180() {
+    Assertions.assertThrows(IllegalArgumentException.class, () -> {
+      new Position(0, -181);
+    });
+  }
+
+  @Test
   void constructorIsInclusiveInExtremity() {
     Assertions.assertDoesNotThrow(() -> {
       new Position(90, 180);
+    });
+  }
+  
+  @Test
+  void constructorIsInclusiveInNegativeExtremity() {
+    Assertions.assertDoesNotThrow(() -> {
+      new Position(-90, -180);
     });
   }
 }

@@ -9,8 +9,8 @@ package com.pierreroman.adsb;
 public record Position(double latitude, double longitude) {
   private static final double MAX_LATITUDE = 90.0;
   private static final double MAX_LONGITUDE = 180.0;
-  private static final double MIN_LATITUDE = -180.0;
-  private static final double MIN_LONGITUDE = -90.0;
+  private static final double MIN_LATITUDE = -90.0;
+  private static final double MIN_LONGITUDE = -180.0;
 
   /**
    * A Position latitude and longitude must respect interval value.
