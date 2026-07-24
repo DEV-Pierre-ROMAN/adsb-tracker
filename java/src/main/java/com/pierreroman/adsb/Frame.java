@@ -39,4 +39,7 @@ public record Frame(byte[] raw) {
     return ((raw[1] & 0xFF) << 16) | ((raw[2] & 0xFF) << 8) | (raw[3] & 0xFF);
   }
 
+  public int typeCode() {
+    return (raw[4] & 0xFF) >> 3;
+  }
 }

@@ -81,4 +81,14 @@ class FrameTest {
     Assertions.assertEquals(0x4840D6,  frame.icao(),
         "la methode ca convertie bien les octet 2 à 4");
   }
+
+  @Test
+  void meTcIsDecodedFromTheFiveFirstbitsOfTheFifthBytes() {
+    byte[] bytes = new byte[14];
+    bytes[4] = (byte) 0x20;
+
+    Frame frame = new Frame(bytes);
+    Assertions.assertEquals(4,  frame.typeCode(),
+        "la methode ca convertie bien les 5 premiers bits du 5 ème octet");
+  }
 }
