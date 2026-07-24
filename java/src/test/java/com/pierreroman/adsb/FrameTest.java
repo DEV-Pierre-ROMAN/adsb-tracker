@@ -47,4 +47,14 @@ class FrameTest {
     Assertions.assertEquals(3, frame.raw()[0],
         "la référence de l'accesseur ne permet pas de modifier la propriété");
   }
+
+  @Test
+  void dfIsDecodedFromTopFiveBits() {
+    byte df = (byte) 0x8D;
+    byte[] bytes = new byte[14];
+    bytes[0] = df;
+
+    Frame frame = new Frame(bytes);
+    Assertions.assertEquals(17, frame.df(), "la methode df convertie bien les 5 premiers bits");
+  }
 }

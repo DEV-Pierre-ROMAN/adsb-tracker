@@ -27,4 +27,8 @@ public record Frame(byte[] raw) {
     return Arrays.copyOf(raw, raw.length);
   }
 
+  public int df() {
+    return (raw[0] & 0xFF) >> 3;
+  }
+
 }
