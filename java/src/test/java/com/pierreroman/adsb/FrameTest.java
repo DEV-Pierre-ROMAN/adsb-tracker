@@ -79,7 +79,7 @@ class FrameTest {
 
     Frame frame = new Frame(bytes);
     Assertions.assertEquals(0x4840D6,  frame.icao(),
-        "la methode ca convertie bien les octet 2 à 4");
+        "la methode icao convertie bien les octet 2 à 4");
   }
 
   @Test
@@ -89,6 +89,21 @@ class FrameTest {
 
     Frame frame = new Frame(bytes);
     Assertions.assertEquals(4,  frame.typeCode(),
-        "la methode ca convertie bien les 5 premiers bits du 5 ème octet");
+        "la methode typeCode convertie bien les 5 premiers bits du 5 ème octet");
+  }
+
+  @Test
+  void callsignIsDecodedFromTheFifthToTheTenBytes() {
+    byte[] bytes = new byte[14];
+    bytes[5] = (byte) 0x2C;
+    bytes[6] = (byte) 0xC3;
+    bytes[7] = (byte) 0x71;
+    bytes[8] = (byte) 0xC3;
+    bytes[9] = (byte) 0x2C;
+    bytes[10] = (byte) 0xE0;
+
+    Frame frame = new Frame(bytes);
+    Assertions.assertEquals("KLM1023",  frame.callsign(),
+        "la methode callsign convertie bien de l'octet 5 à l'octet 10");
   }
 }
