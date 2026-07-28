@@ -71,7 +71,7 @@ class MessageTypeTest {
   @Test
   void fromTypeCodeReturnUnknown0() {
     Assertions.assertEquals(MessageType.UNKNOWN,
-        MessageType.fromTypeCode(2),
+        MessageType.fromTypeCode(0),
         "the fromTypeCode function return UNKNOWN");
   }
 
