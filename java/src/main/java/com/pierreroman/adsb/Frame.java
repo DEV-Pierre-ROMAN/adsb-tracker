@@ -60,9 +60,7 @@ public record Frame(byte[] raw) {
    */
   public String callsign() {
 
-    long frameCallsign = ((raw[5] & 0xFFL) << 40)
-        | ((raw[6] & 0xFFL) << 32)
-        | ((raw[7] & 0xFFL) << 24)
+    long frameCallsign = ((raw[5] & 0xFFL) << 40) | ((raw[6] & 0xFFL) << 32) | ((raw[7] & 0xFFL) << 24)
         | ((raw[8] & 0xFFL) << 16)
         | ((raw[9] & 0xFFL) << 8)
         | (raw[10] & 0xFFL);
